@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cartpopup>
+            <settings>
+                <enabled>1</enabled>
+                <product_carousel>_randomProducts</product_carousel>
+                <product_limit>10</product_limit>
+                <carousel_autoplay>1</carousel_autoplay>
+            </settings>
+        </cartpopup>
+    </default>
+</config>

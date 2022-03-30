@@ -1,0 +1,106 @@
+<?php
+
+namespace Magelearnnew\CustomerDiscount\Block\Sales\Totals;
+
+use Magento\Sales\Model\Order;
+
+class CustomerDiscount extends \Magento\Framework\View\Element\Template
+{
+    /**
+     * @var Order
+     */
+    protected $_order;
+
+    /**
+     * @var \Magento\Framework\DataObject
+     */
+    protected $_source;
+
+    /**
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param array $data
+     */
+    public function __construct(
+        \Magento\Framework\View\Element\Template\Context $context,
+        array $data = []
+    )
+    {
+        parent::__construct($context, $data);
+    }
+
+    /**
+     * Check if we nedd display full tax total info
+     *
+     * @return bool
+     */
+    public function displayFullSummary()
+    {
+        return true;
+    }
+
+    /**
+     * Get data (totals) source model
+     *
+     * @return \Magento\Framework\DataObject
+     */
+    public function getSource()
+    {
+        return $this->_source;
+    }
+
+    public function getStore()
+    {
+        return $this->_order->getStore();
+    }
+
+    /**
+     * @return Order
+     */
+    public function getOrder()
+    {
+        return $this->_order;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLabelProperties()
+    {
+        return $this->getParentBlock()->getLabelProperties();
+    }
+
+    /**
+     * @return array
+     */
+    public function getValueProperties()
+    {
+        return $this->getParentBlock()->getValueProperties();
+    }
+
+    /**
+     * @return $this
+     */
+    public function initTotals()
+    {
+        $parent = $this->getParentBlock();
+        $this->_order = $parent->getOrder();
+        $this->_source = $parent->getSource();
+
+        if(!$this->getSource()->getCustomerDiscount()) {
+            return $this;
+        }
+        $total = new \Magento\Framework\DataObject(
+            [
+                'code' => 'customer_discount',
+                'strong' => false,
+                'value' => $this->getSource()->getCustomerDiscount(),
+                'label' => 'Customer Discount',
+            ]
+        );
+
+        $parent->addTotal($total, 'customer_discount');
+
+        return $this;
+    }
+
+}

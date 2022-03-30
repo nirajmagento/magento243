@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <head>
+        <css src="Magelearn_CartPopup::css/cartpopup.css"/>
+        <css src="Magelearn_CartPopup::css/owl.carousel.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+                <block class="Magelearn\CartPopup\Block\Popup" name="ajax.popup.placeholder"
+                       ifconfig="cartpopup/settings/enabled" template="Magelearn_CartPopup::popup.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

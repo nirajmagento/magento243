@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="watchcenter_mobile_product_stock_notify_email_template" label="Product Stock Notify Email Template" file="product_stock_notify.html" type="html" module="Watchcentre_Mobile" area="frontend" />
+</config>
