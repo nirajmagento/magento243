@@ -89,6 +89,7 @@ class CustomerDiscount extends \Magento\Framework\View\Element\Template
         if(!$this->getSource()->getCustomerDiscount()) {
             return $this;
         }
+        //test
         $total = new \Magento\Framework\DataObject(
             [
                 'code' => 'customer_discount',
