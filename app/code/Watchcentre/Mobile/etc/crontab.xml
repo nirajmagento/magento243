@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
-    <group id="default">
-        <job name="watchcenter_mobile_product_stock_notify_email_cron_job" instance="Watchcenter\Mobile\Cron\SendNotifyEmail" method="execute">
-            <schedule>*/30 * * * *</schedule>
-        </job>
-    </group>
-</config>
